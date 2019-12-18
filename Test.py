@@ -49,3 +49,12 @@ class TestLetterMatrix(TestCase):
     def test_getNeigboursCenter(self):
         expectedNeighbours = [Letter('d', 1, 0), Letter('f', 1, 2), Letter('b', 0, 1), Letter('h', 2, 1)]
         self.assertEqual(self.matrix.getNeighbours(1, 1), expectedNeighbours)
+
+    def test_getNeighboursEdge(self):
+        expectedNeighbours = [Letter('b', 0, 1), Letter('d', 1, 0)]
+        self.assertEqual(self.matrix.getNeighbours(0, 0), expectedNeighbours)
+
+    def test_getNeighboursEdge2(self):
+        expectedNeighbours = [Letter('h', 2, 1), Letter('f', 1, 2)]
+        self.assertEqual(self.matrix.getNeighbours(2, 2), expectedNeighbours)
+

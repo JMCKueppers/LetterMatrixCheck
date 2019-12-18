@@ -19,7 +19,7 @@ class LetterMatrix:
         return True
 
     def getSymbol(self, row, column):
-        return self.inputRows[row][column]
+        return self.matrix[row][column].getLetter()
 
     def getLetter(self, row, column):
         return self.matrix[row][column]
