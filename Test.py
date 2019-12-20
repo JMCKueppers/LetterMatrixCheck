@@ -38,6 +38,11 @@ class TestLetterMatrix(TestCase):
     def test_correctInputTrue(self):
         self.assertTrue(self.matrix.correctInput())
 
+    def test_correctInputTrueNonQuadratic(self):
+        input = 'abc\ndef\nghi\njkl'
+        matrix = LetterMatrix(input)
+        self.assertTrue(matrix.correctInput())
+
     def test_correctInputFalse(self):
         input = 'abc\ndefg\nhij'
         matrix = LetterMatrix(input)
@@ -58,3 +63,15 @@ class TestLetterMatrix(TestCase):
         expectedNeighbours = [Letter('h', 2, 1), Letter('f', 1, 2)]
         self.assertEqual(self.matrix.getNeighbours(2, 2), expectedNeighbours)
 
+    def test_wordAppearances(self):
+        input = 'Katze\naqrxy\ntqrxy\nzqrxy\neqrxy'
+        matrix = LetterMatrix(input)
+        initialLetter = matrix.getLetter(0, 0)
+        word = 'Katze'
+        self.assertEqual(self.matrix.wordAppearances(initialLetter, word), 2)
+
+    def test_totalWordAppearances(self):
+        input = 'Katze\nKatze\nKatze'
+        matrix = LetterMatrix(input)
+        word = 'Katze'
+        self.assertEqual(matrix.totalWordAppearances(word), 3)

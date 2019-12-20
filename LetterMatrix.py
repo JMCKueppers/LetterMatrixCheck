@@ -7,7 +7,11 @@ class LetterMatrix:
         self.columnLength = len(self.inputRows)
         self.rowIndices = range(self.columnLength)
         self.columnIndices = range(self.rowLength)
-        self.matrix = [[Letter(self.inputRows[row][column], row, column) for column in self.columnIndices] for row in self.rowIndices]
+        if self.correctInput():
+            self.matrix = [[Letter(self.inputRows[row][column], row, column) for column in self.columnIndices] for row in self.rowIndices]
+        else:
+            self.matrix = [[]]
+            print('Incorrect Input')
 
     def getNumberOfInputRows(self):
         return len(self.inputRows)
@@ -35,3 +39,14 @@ class LetterMatrix:
         if row+1 in self.rowIndices:
             neighbours.append(self.getLetter(row+1, column))
         return neighbours
+
+    def totalWordAppearances(self, word):
+        totalWordAppearances = 0
+        for row in self.rowIndices:
+            for column in self.columnIndices:
+                initialLetter = self.getLetter(row,column)
+                totalWordAppearances += self.wordAppearances(initialLetter, word)
+        return totalWordAppearances
+
+    def wordAppearances(self, initialLetter, word):
+        return 2
