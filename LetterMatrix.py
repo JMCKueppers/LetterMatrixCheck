@@ -1,5 +1,6 @@
 from Letter import *
 
+
 class LetterMatrix:
     def __init__(self, inputMatrix):
         self.inputRows = inputMatrix.splitlines()
@@ -28,7 +29,9 @@ class LetterMatrix:
     def getLetter(self, row, column):
         return self.matrix[row][column]
 
-    def getNeighbours(self, row, column):
+    def getNeighbours(self, letter):
+        row = letter.getRow()
+        column = letter.getColumn()
         neighbours = []
         if column-1 in self.columnIndices:
             neighbours.append(self.getLetter(row, column-1))
@@ -41,12 +44,22 @@ class LetterMatrix:
         return neighbours
 
     def totalWordAppearances(self, word):
-        totalWordAppearances = 0
+        totalWordCounter = 0
         for row in self.rowIndices:
             for column in self.columnIndices:
                 initialLetter = self.getLetter(row,column)
-                totalWordAppearances += self.wordAppearances(initialLetter, word)
-        return totalWordAppearances
+                totalWordCounter += self.wordAppearances(initialLetter, word)
+        return totalWordCounter
 
     def wordAppearances(self, initialLetter, word):
-        return 2
+        wordCounter = 0
+        neighbours = self.getNeighbours(initialLetter)
+        if initialLetter.getLetter() == word[0]:
+            if len(word) > 1:
+                remainingWord = word[1:]
+                for neighbour in neighbours:
+                    wordCounter += self.wordAppearances(neighbour, remainingWord)
+            if len(word) == 1:
+                wordCounter += 1
+                print('Hi')
+        return wordCounter
