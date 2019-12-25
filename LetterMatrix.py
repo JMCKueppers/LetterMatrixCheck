@@ -1,4 +1,5 @@
 from Letter import *
+from copy import copy
 
 
 class LetterMatrix:
@@ -51,15 +52,16 @@ class LetterMatrix:
                 totalWordCounter += self.wordAppearances(initialLetter, word)
         return totalWordCounter
 
-    def wordAppearances(self, initialLetter, word):
+    def wordAppearances(self, initialLetter, word, previousLetters = []):
         wordCounter = 0
         neighbours = self.getNeighbours(initialLetter)
         if initialLetter.getLetter() == word[0]:
+            previousLetters.append(initialLetter)
             if len(word) > 1:
                 remainingWord = word[1:]
                 for neighbour in neighbours:
-                    wordCounter += self.wordAppearances(neighbour, remainingWord)
+                    if not neighbour in previousLetters:
+                        wordCounter += self.wordAppearances(neighbour, remainingWord, copy(previousLetters))
             if len(word) == 1:
                 wordCounter += 1
-                print('Hi')
         return wordCounter

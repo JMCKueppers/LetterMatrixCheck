@@ -1,5 +1,4 @@
 from unittest import TestCase
-from Letter import *
 from LetterMatrix import *
 
 
@@ -67,18 +66,18 @@ class TestLetterMatrix(TestCase):
         self.assertEqual(self.matrix.getNeighbours(letter), expectedNeighbours)
 
     def test_wordAppearances(self):
-        input = 'Katze\naqrxy\ntqrxy\nzqrxy\neqrxy'
-        matrix = LetterMatrix(input)
-        initialLetter = matrix.getLetter(0, 0)
-        word = 'Katze'
-        self.assertEqual(matrix.wordAppearances(initialLetter, word), 2)
-
-    def test_wordAppearances2(self):
         input = 'Katze'
         matrix = LetterMatrix(input)
         initialLetter = matrix.getLetter(0, 0)
         word = 'Katze'
         self.assertEqual(matrix.wordAppearances(initialLetter, word), 1)
+
+    def test_wordAppearances2(self):
+        input = 'Katze\naqrxy\ntqrxy\nzqrxy\neqrxy'
+        matrix = LetterMatrix(input)
+        initialLetter = matrix.getLetter(0, 0)
+        word = 'Katze'
+        self.assertEqual(matrix.wordAppearances(initialLetter, word), 2)
 
     def test_totalWordAppearances(self):
         input = 'Katze\nKatze\nKatze'
