@@ -51,11 +51,11 @@ class LetterMatrix:
         totalWordCounter = 0
         for row in self.rowIndices:
             for column in self.columnIndices:
-                initialLetter = self.getLetter(row,column)
+                initialLetter = self.getLetter(row, column)
                 totalWordCounter += self.wordAppearances(initialLetter, word)
         return totalWordCounter
 
-    def wordAppearances(self, initialLetter, word, previousLetters = []):
+    def wordAppearances(self, initialLetter, word, previousLetters=[]):
         wordCounter = 0
         neighbours = self.getNeighbours(initialLetter)
         if initialLetter.getLetter() == word[0]:
@@ -63,7 +63,7 @@ class LetterMatrix:
             if len(word) > 1:
                 remainingWord = word[1:]
                 for neighbour in neighbours:
-                    if not neighbour in previousLetters:
+                    if neighbour not in previousLetters:
                         wordCounter += self.wordAppearances(neighbour, remainingWord, copy(previousLetters))
             if len(word) == 1:
                 wordCounter += 1

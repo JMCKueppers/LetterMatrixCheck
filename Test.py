@@ -22,14 +22,14 @@ class TestLetter(TestCase):
 
 class TestLetterMatrix(TestCase):
     def setUp(self):
-        self.input = 'abc\ndef\nghi'
-        self.matrix = LetterMatrix(self.input)
+        self.inputMatrix = 'abc\ndef\nghi'
+        self.matrix = LetterMatrix(self.inputMatrix)
 
     def test_split(self):
         self.assertEqual(self.matrix.inputRows, ['abc', 'def', 'ghi'])
 
     def test_rowLength(self):
-        self.assertEqual(self.matrix.rowLength,3)
+        self.assertEqual(self.matrix.rowLength, 3)
 
     def test_columnLength(self):
         self.assertEqual(self.matrix.columnLength, 3)
@@ -38,13 +38,13 @@ class TestLetterMatrix(TestCase):
         self.assertTrue(self.matrix.correctInput())
 
     def test_correctInputTrueNonQuadratic(self):
-        input = 'abc\ndef\nghi\njkl'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'abc\ndef\nghi\njkl'
+        matrix = LetterMatrix(inputMatrix)
         self.assertTrue(matrix.correctInput())
 
     def test_correctInputFalse(self):
-        input = 'abc\ndefg\nhij'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'abc\ndefg\nhij'
+        matrix = LetterMatrix(inputMatrix)
         self.assertFalse(matrix.correctInput())
 
     def test_getSymbol(self):
@@ -66,33 +66,33 @@ class TestLetterMatrix(TestCase):
         self.assertEqual(self.matrix.getNeighbours(letter), expectedNeighbours)
 
     def test_wordAppearances(self):
-        input = 'Katze'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'Katze'
+        matrix = LetterMatrix(inputMatrix)
         initialLetter = matrix.getLetter(0, 0)
         word = 'Katze'
         self.assertEqual(matrix.wordAppearances(initialLetter, word), 1)
 
     def test_wordAppearances2(self):
-        input = 'Katze\naqrxy\ntqrxy\nzqrxy\neqrxy'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'Katze\naqrxy\ntqrxy\nzqrxy\neqrxy'
+        matrix = LetterMatrix(inputMatrix)
         initialLetter = matrix.getLetter(0, 0)
         word = 'Katze'
         self.assertEqual(matrix.wordAppearances(initialLetter, word), 2)
 
     def test_totalWordAppearances(self):
-        input = 'Katze\nKatze\nKatze'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'Katze\nKatze\nKatze'
+        matrix = LetterMatrix(inputMatrix)
         word = 'Katze'
         self.assertEqual(matrix.totalWordAppearances(word), 3)
 
     def test_totalWordAppearances2(self):
-        input = 'KKK\naaa\nttt\nzzz\neee'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'KKK\naaa\nttt\nzzz\neee'
+        matrix = LetterMatrix(inputMatrix)
         word = 'Katze'
         self.assertEqual(matrix.totalWordAppearances(word), 3)
 
     def test_totalWordAppearancesGivenExample(self):
-        input = 'KLPQRK\nATLDAI\nMZEATE\nTAKATZ'
-        matrix = LetterMatrix(input)
+        inputMatrix = 'KLPQRK\nATLDAI\nMZEATE\nTAKATZ'
+        matrix = LetterMatrix(inputMatrix)
         word = 'KATZE'
         self.assertEqual(matrix.totalWordAppearances(word), 2)
