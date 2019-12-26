@@ -90,3 +90,9 @@ class TestLetterMatrix(TestCase):
         matrix = LetterMatrix(input)
         word = 'Katze'
         self.assertEqual(matrix.totalWordAppearances(word), 3)
+
+    def test_totalWordAppearancesGivenExample(self):
+        input = 'KLPQRK\nATLDAI\nMZEATE\nTAKATZ'
+        matrix = LetterMatrix(input)
+        word = 'KATZE'
+        self.assertEqual(matrix.totalWordAppearances(word), 2)

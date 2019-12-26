@@ -7,13 +7,13 @@
 # WARNING! All changes made in this file will be lost!
 
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(680, 436)
+        MainWindow.resize(664, 436)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.labelMatrix = QtWidgets.QLabel(self.centralwidget)
@@ -29,11 +29,19 @@ class Ui_MainWindow(object):
         self.labelKeyword.setGeometry(QtCore.QRect(390, 30, 91, 16))
         self.labelKeyword.setObjectName("labelKeyword")
         self.buttonCheck = QtWidgets.QToolButton(self.centralwidget)
-        self.buttonCheck.setGeometry(QtCore.QRect(390, 110, 121, 22))
+        self.buttonCheck.setGeometry(QtCore.QRect(390, 140, 121, 22))
         self.buttonCheck.setObjectName("buttonCheck")
+        self.boxCaseSensitivity = QtWidgets.QCheckBox(self.centralwidget)
+        self.boxCaseSensitivity.setGeometry(QtCore.QRect(390, 100, 221, 20))
+        self.boxCaseSensitivity.setChecked(True)
+        self.boxCaseSensitivity.setObjectName("boxCaseSensitivity")
+        self.labelOutput = QtWidgets.QLabel(self.centralwidget)
+        self.labelOutput.setGeometry(QtCore.QRect(390, 180, 221, 16))
+        self.labelOutput.setText("")
+        self.labelOutput.setObjectName("labelOutput")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 680, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 664, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -49,3 +57,4 @@ class Ui_MainWindow(object):
         self.labelMatrix.setText(_translate("MainWindow", "Buchstabenmatrix:"))
         self.labelKeyword.setText(_translate("MainWindow", "Suchwort:"))
         self.buttonCheck.setText(_translate("MainWindow", "Überprüfe Matrix"))
+        self.boxCaseSensitivity.setText(_translate("MainWindow", "Groß-/Kleinschreibung beachten"))

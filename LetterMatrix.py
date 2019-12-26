@@ -5,8 +5,11 @@ from copy import copy
 class LetterMatrix:
     def __init__(self, inputMatrix):
         self.inputRows = inputMatrix.splitlines()
-        self.rowLength = len(self.inputRows[0])
         self.columnLength = len(self.inputRows)
+        if self.columnLength == 0:
+            self.rowLength = 0
+        else:
+            self.rowLength = len(self.inputRows[0])
         self.rowIndices = range(self.columnLength)
         self.columnIndices = range(self.rowLength)
         if self.correctInput():

@@ -17,12 +17,19 @@ class MyWindow(QMainWindow):
         self.ui.buttonCheck.clicked.connect(self.clickMethod)
 
     def clickMethod(self):
-        self.inputMatrix = self.ui.inputFieldMatrix.toPlainText()
-        self.inputWord = self.ui.inputFieldKeyword.text()
-        print(self.inputMatrix)
-        print(self.inputWord)
+        if self.ui.boxCaseSensitivity.isChecked():
+            self.inputMatrix = self.ui.inputFieldMatrix.toPlainText()
+            self.inputWord = self.ui.inputFieldKeyword.text()
+        else:
+            self.inputMatrix = self.ui.inputFieldMatrix.toPlainText().upper()
+            self.inputWord = self.ui.inputFieldKeyword.text().upper()
         myMatrix = LetterMatrix(self.inputMatrix)
-        print(myMatrix.correctInput())
+        if myMatrix.correctInput():
+            numberOfWordAppearances = str(myMatrix.totalWordAppearances(self.inputWord))
+            self.ui.labelOutput.setText("Das Wort wurde "+numberOfWordAppearances+" mal gefunden")
+        else:
+            self.ui.labelOutput.setText("Ungültige Eingabe")
+
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>680</width>
+    <width>664</width>
     <height>436</height>
    </rect>
   </property>
@@ -64,7 +64,7 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>110</y>
+      <y>140</y>
       <width>121</width>
       <height>22</height>
      </rect>
@@ -73,14 +73,43 @@
      <string>Überprüfe Matrix</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="boxCaseSensitivity">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>100</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Groß-/Kleinschreibung beachten</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelOutput">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>180</y>
+      <width>221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>680</width>
-     <height>20</height>
+     <width>664</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>
