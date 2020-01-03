@@ -16,7 +16,6 @@ class LetterMatrix:
             self.matrix = [[Letter(self.inputRows[row][column], row, column) for column in self.columnIndices] for row in self.rowIndices]
         else:
             self.matrix = [[]]
-            print('Incorrect Input')
 
     def getNumberOfInputRows(self):
         return len(self.inputRows)

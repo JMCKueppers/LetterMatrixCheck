@@ -12,24 +12,25 @@ class MyWindow(QMainWindow):
         QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.inputMatrix = self.ui.inputFieldMatrix.toPlainText()
-        self.inputWord = self.ui.inputFieldKeyword.text()
+        self.setInputStrings()
         self.ui.buttonCheck.clicked.connect(self.clickMethod)
 
-    def clickMethod(self):
+    def setInputStrings(self):
         if self.ui.boxCaseSensitivity.isChecked():
             self.inputMatrix = self.ui.inputFieldMatrix.toPlainText()
             self.inputWord = self.ui.inputFieldKeyword.text()
         else:
             self.inputMatrix = self.ui.inputFieldMatrix.toPlainText().upper()
             self.inputWord = self.ui.inputFieldKeyword.text().upper()
+
+    def clickMethod(self):
+        self.setInputStrings()
         myMatrix = LetterMatrix(self.inputMatrix)
         if myMatrix.correctInput():
             numberOfWordAppearances = str(myMatrix.totalWordAppearances(self.inputWord))
             self.ui.labelOutput.setText("Das Wort wurde " + numberOfWordAppearances + " mal gefunden")
         else:
             self.ui.labelOutput.setText("Ungültige Eingabe")
-
 
 
 if __name__ == "__main__":
