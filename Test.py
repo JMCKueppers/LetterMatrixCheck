@@ -65,6 +65,16 @@ class TestLetterMatrix(TestCase):
         expectedNeighbours = [Letter('h', 2, 1), Letter('f', 1, 2)]
         self.assertEqual(self.matrix.getNeighbours(letter), expectedNeighbours)
 
+    def test_wordAppearancesWrongInitial(self):
+        initialLetter = self.matrix.getLetter(0, 0)
+        word = 'b'
+        self.assertEqual(self.matrix.wordAppearances(initialLetter, word), 0)
+
+    def test_wordAppearancesSingleLetter(self):
+        initialLetter = self.matrix.getLetter(0, 0)
+        word = 'a'
+        self.assertEqual(self.matrix.wordAppearances(initialLetter, word), 1)
+
     def test_wordAppearances(self):
         inputMatrix = 'Katze'
         matrix = LetterMatrix(inputMatrix)
