@@ -27,8 +27,8 @@ class MyWindow(QMainWindow):
         self.setInputStrings()
         myMatrix = LetterMatrix(self.inputMatrix)
         if myMatrix.correctInput():
-            numberOfWordAppearances = str(myMatrix.totalWordAppearances(self.inputWord))
-            self.ui.labelOutput.setText("Das Wort wurde " + numberOfWordAppearances + " mal gefunden")
+            wordAppearances = str(myMatrix.totalWordAppearances(self.inputWord))
+            self.ui.labelOutput.setText("Das Wort wurde " + wordAppearances + " mal gefunden")
         else:
             self.ui.labelOutput.setText("Ungültige Eingabe")
 
