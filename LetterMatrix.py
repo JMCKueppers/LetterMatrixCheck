@@ -17,17 +17,11 @@ class LetterMatrix:
         else:
             self.matrix = [[]]
 
-    def getNumberOfInputRows(self):
-        return len(self.inputRows)
-
     def correctInput(self):
         for row in self.inputRows:
             if len(row) != self.rowLength:
                 return False
         return True
-
-    def getSymbol(self, row, column):
-        return self.matrix[row][column].getLetter()
 
     def getLetter(self, row, column):
         return self.matrix[row][column]

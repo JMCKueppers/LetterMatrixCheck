@@ -47,9 +47,6 @@ class TestLetterMatrix(TestCase):
         matrix = LetterMatrix(inputMatrix)
         self.assertFalse(matrix.correctInput())
 
-    def test_getSymbol(self):
-        self.assertEqual(self.matrix.getSymbol(1, 1), 'e')
-
     def test_getNeigboursCenter(self):
         letter = Letter('e', 1, 1)
         expectedNeighbours = [Letter('d', 1, 0), Letter('f', 1, 2), Letter('b', 0, 1), Letter('h', 2, 1)]
